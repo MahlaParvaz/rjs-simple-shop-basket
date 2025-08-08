@@ -3,9 +3,15 @@ import type { TProduct } from '../types/productTypes';
 import { TbListDetails, TbShoppingBagCheck } from 'react-icons/tb';
 import style from './Card.module.css';
 import { shortenText } from '../helper/helper';
+import { useCart } from '../context/CartContext';
 
 export default function Card({ data }: { data: TProduct }) {
   const { id, title, image, price } = data;
+  const [state, dispatch] = useCart();
+
+  const addToBasketHandler = () => {
+    dispatch({ type: 'ADD_ITEM', payload: data });
+  };
 
   return (
     <div className={style.card}>
@@ -17,7 +23,7 @@ export default function Card({ data }: { data: TProduct }) {
           <TbListDetails />
         </Link>
         <div>
-          <button>
+          <button onClick={addToBasketHandler}>
             <TbShoppingBagCheck />
           </button>
         </div>
