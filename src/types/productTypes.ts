@@ -11,3 +11,9 @@ export type QueryObject = {
   search?: string;
   category?: string;
 };
+
+export type TSearchBoxProps = {
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  setQuery: React.Dispatch<React.SetStateAction<QueryObject>>;
+};
