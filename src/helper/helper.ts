@@ -1,4 +1,4 @@
-import type { QueryObject, TProduct } from '../types/productTypes';
+import type { QueryObject, TCartState, TProduct } from '../types/productTypes';
 
 export const shortenText = (text: string) => {
   return text.split('').slice(0, 3).join('');
@@ -55,10 +55,19 @@ export const getInitialQuery = (searchParams: URLSearchParams): QueryObject => {
   return query;
 };
 
-export const sumProducts = (products) => {
+export const sumProducts = (products: TProduct[]) => {
   const itemsCounter = products.reduce((acc, cur) => acc + cur.quantity, 0);
   const total = products
     .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
     .toFixed(2);
   return { itemsCounter, total };
+};
+
+export const productQuantity = (state: TCartState, id: number): number => {
+  const index = state.selectedItems.findIndex((item) => item.id === id);
+  if (index === -1) {
+    return 0;
+  } else {
+    return state.selectedItems[index].quantity;
+  }
 };

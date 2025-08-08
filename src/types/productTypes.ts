@@ -43,3 +43,6 @@ export type TCartContextType = {
 export type TCartProviderProps = {
   children: ReactNode;
 };
+
+
+export type TCartActionType = 'ADD_ITEM' | 'REMOVE_ITEM' | 'INCREASE' | 'DECREASE';
