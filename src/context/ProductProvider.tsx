@@ -12,7 +12,7 @@ type ProductProviderProps = {
   children: ReactNode;
 };
 
-const ProductContext = createContext<TProduct[] | undefined>(undefined);
+const ProductContext = createContext<TProduct[]>([]);
 
 export default function ProductProvider({ children }: ProductProviderProps) {
   const [products, setProducts] = useState<TProduct[]>([]);
@@ -35,9 +35,9 @@ export default function ProductProvider({ children }: ProductProviderProps) {
   );
 }
 
-const useProducts = (): TProduct[] | undefined => {
+const useProducts = (): TProduct[] => {
   const products = useContext(ProductContext);
-  return products;
+  return products || [];
 };
 
 export { useProducts };
