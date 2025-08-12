@@ -49,4 +49,5 @@ export type TCartActionType =
   | 'ADD_ITEM'
   | 'REMOVE_ITEM'
   | 'INCREASE'
-  | 'DECREASE';
+  | 'DECREASE'
+  | 'CHECKOUT';

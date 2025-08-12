@@ -57,9 +57,11 @@ export const getInitialQuery = (searchParams: URLSearchParams): QueryObject => {
 
 export const sumProducts = (products: TProduct[]) => {
   const itemsCounter = products.reduce((acc, cur) => acc + cur.quantity, 0);
-  const total = products
-    .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-    .toFixed(2);
+  const total = products.reduce(
+    (acc, cur) => acc + cur.price * cur.quantity,
+    0
+  );
+
   return { itemsCounter, total };
 };
 
