@@ -8,6 +8,7 @@ export type TProduct = {
   image: string;
   category: string;
   quantity: number;
+  description: string;
 };
 
 export type QueryObject = {
@@ -44,5 +45,8 @@ export type TCartProviderProps = {
   children: ReactNode;
 };
 
-
-export type TCartActionType = 'ADD_ITEM' | 'REMOVE_ITEM' | 'INCREASE' | 'DECREASE';
+export type TCartActionType =
+  | 'ADD_ITEM'
+  | 'REMOVE_ITEM'
+  | 'INCREASE'
+  | 'DECREASE';

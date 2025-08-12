@@ -40,4 +40,9 @@ const useProducts = (): TProduct[] => {
   return products || [];
 };
 
-export { useProducts };
+const useProductDetails = (id: number) => {
+  const products = useContext(ProductContext);
+  const result = products.find((product) => product.id === id);
+  return result;
+};
+export { useProducts, useProductDetails };
